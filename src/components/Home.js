@@ -17,7 +17,7 @@ function Home() {
         // })
 
         // using fetch
-        const serverURL = `${process.env.serverURL}/allMemes`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/allMemes`;
         fetch(serverURL).then((data) => {
             data.json().then(response => {
                 setMemesArray(response)
@@ -31,7 +31,7 @@ function Home() {
     },[])
     
     const addToFav = (item) =>{
-        const serverURL = `${process.env.serverURL}/addToFav`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/addToFav`;
         axios.post(serverURL , item)
         .then(response=>{
             console.log(response.data)
@@ -43,7 +43,6 @@ function Home() {
     return (
         <>
             <h1>Home</h1>
-            <button onClick={getAllMemes}>send request to get data</button>
             {memesArray.map((item) => {
                 return <Card style={{ width: '18rem' }} key={item.id}>
                     <Card.Img variant="top" src={item.image}/>
