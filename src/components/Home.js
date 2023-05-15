@@ -17,7 +17,7 @@ function Home() {
         // })
 
         // using fetch
-        const serverURL = `http://localhost:3003/allMemes`;
+        const serverURL = `${process.env.serverURL}/allMemes`;
         fetch(serverURL).then((data) => {
             data.json().then(response => {
                 setMemesArray(response)
@@ -31,7 +31,7 @@ function Home() {
     },[])
     
     const addToFav = (item) =>{
-        const serverURL = `http://localhost:3003/addToFav`;
+        const serverURL = `${process.env.serverURL}/addToFav`;
         axios.post(serverURL , item)
         .then(response=>{
             console.log(response.data)

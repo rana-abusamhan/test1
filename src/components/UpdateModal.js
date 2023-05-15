@@ -19,7 +19,7 @@ function UpdateModal(props) {
             bottomtext :  e.target.bottomtext.value
         }
         console.log(obj);
-        const serverURl = `http://localhost:3003/updatefavMeme/${props.clickedMeme.id}`
+        const serverURl = `${process.env.serverURL}/updatefavMeme/${props.clickedMeme.id}`
         const result = await axios.put(serverURl,obj)
 
         //close the update modal
