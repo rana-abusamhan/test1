@@ -8,7 +8,7 @@ function FavList() {
     const getFavMemes = () => {
 
         // using fetch
-        const serverURL = `http://localhost:3003/favMemes`;
+        const serverURL = `${process.env.REACT_APP_serverURL}/favMemes`;
         fetch(serverURL).then((data) => {
             data.json().then(response => {
                 setFavArray(response)
